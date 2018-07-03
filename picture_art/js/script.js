@@ -321,7 +321,7 @@ if (popupDesign.style.display != 'block' && popupGift.style.display != 'block') 
     
 };
 
-setTimeout(consultTime, 6000);
+setTimeout(consultTime, 60000);
 
 
 let accordionBlock = document.querySelectorAll('.accordion-block'),
