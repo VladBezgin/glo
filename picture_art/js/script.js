@@ -1,7 +1,21 @@
-let slideIndex = 1,
+let index = 1,
     slides = document.getElementsByClassName('main-slider-item');
 
-function showSlides(n) {
+slides[1].style.display = 'none';
+/*
+var slideInterval = setInterval(nextSlide,2000);
+
+function nextSlide() {
+
+slides[index].className = 'slide';
+
+index = (index+1)%slides.length;
+
+slides[index].className = 'slide showing';
+
+}
+*/
+/*function showSlides(n) {
     if (n > slides.length) {
         slideIndex = 0;
     };
@@ -31,9 +45,9 @@ function autoSlider() {
     sliderDown(1)
 
     let timeInterval = setInterval(sliderDown, 3000);
-}
+}*/
 
-autoSlider()
+//autoSlider()
 
 let designBtn = document.querySelectorAll('.button-design'),
     close2 = document.getElementsByClassName('popup-close')[2],
@@ -294,31 +308,31 @@ slizesBlock[3].addEventListener('mouseleave', () => {
 
 
 function consultTime() {
-    
-        
 
 
-if (popupDesign.style.display != 'block' && popupGift.style.display != 'block') {
+
+
+    if (popupDesign.style.display != 'block' && popupGift.style.display != 'block') {
         popupConsult.style.display = 'block';
         document.body.style.overflow = 'hidden';
-};
+    };
 
 
-        popupDialog0.addEventListener('mouseenter', () => isMouseLeft0 = false);
-        popupDialog0.addEventListener('mouseleave', () => isMouseLeft0 = true);
+    popupDialog0.addEventListener('mouseenter', () => isMouseLeft0 = false);
+    popupDialog0.addEventListener('mouseleave', () => isMouseLeft0 = true);
 
-        popupConsult.addEventListener('click', () => {
-            if (isMouseLeft0) {
-                popupConsult.style.display = 'none';
-                document.body.style.overflow = '';
-            }
-        });
-
-        close0.addEventListener('click', function() {
+    popupConsult.addEventListener('click', () => {
+        if (isMouseLeft0) {
             popupConsult.style.display = 'none';
             document.body.style.overflow = '';
-        });
-    
+        }
+    });
+
+    close0.addEventListener('click', function() {
+        popupConsult.style.display = 'none';
+        document.body.style.overflow = '';
+    });
+
 };
 
 setTimeout(consultTime, 60000);
@@ -328,14 +342,14 @@ let accordionBlock = document.querySelectorAll('.accordion-block'),
     accordionHeading = document.querySelectorAll('.accordion-heading');
 
 for (i = 0; i < accordionBlock.length; i++) {
-            accordionBlock[i].style.display = 'none';
-        };
+    accordionBlock[i].style.display = 'none';
+};
 
 function accordion(e1, e2, num) {
     e1[num].addEventListener('click', () => {
-    	for(i = 0; i < e1.length; i++) {
-    		e1[i].classList.remove('ui-accordion-header-active');
-    	};
+        for (i = 0; i < e1.length; i++) {
+            e1[i].classList.remove('ui-accordion-header-active');
+        };
         for (i = 0; i < e2.length; i++) {
             e2[i].style.display = 'none';
         };
@@ -348,3 +362,199 @@ accordion(accordionHeading, accordionBlock, 0);
 accordion(accordionHeading, accordionBlock, 1);
 accordion(accordionHeading, accordionBlock, 2);
 accordion(accordionHeading, accordionBlock, 3);
+
+
+
+let feedbackBlock = document.querySelectorAll('.feedback-block'),
+    feedbackHeading = document.querySelectorAll('.feedback-heading'),
+    feedbackText = document.querySelectorAll('.feedback-text'),
+    feedbackSignature = document.querySelectorAll('.feedback-signature'),
+    prev = document.getElementsByClassName('main-prev-btn')[0],
+    slideIndex = 1,
+    next = document.getElementsByClassName('main-next-btn')[0];
+
+
+for (i = 1; i < 3; i++) {
+    feedbackSignature[i].style.display = 'none';
+    feedbackText[i].style.display = 'none';
+    feedbackHeading[i].style.display = 'none';
+    feedbackBlock[i].style.display = 'none';
+};
+
+function showSlides(n) {
+    if (n > feedbackSignature.length) {
+        slideIndex = 1
+    };
+    if (n < 1) {
+        slideIndex = feedbackSignature.length;
+    };
+
+    for (let i = 0; i < feedbackSignature.length; i++) {
+        feedbackSignature[i].style.display = 'none';
+        feedbackText[i].style.display = 'none';
+        feedbackHeading[i].style.display = 'none';
+        feedbackBlock[i].style.display = 'none';
+
+    };
+
+    feedbackBlock[slideIndex - 1].style.display = 'block';
+    feedbackSignature[slideIndex - 1].style.display = 'block';
+    feedbackHeading[slideIndex - 1].style.display = 'block';
+    feedbackText[slideIndex - 1].style.display = 'block';
+
+
+}
+
+function plusSliders(n) {
+    showSlides(slideIndex += n);
+}
+
+prev.addEventListener('click', function() {
+    plusSliders(-1);
+})
+
+next.addEventListener('click', function() {
+    plusSliders(1);
+})
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+
+console.log(document.documentElement.scrollHeight)
+
+
+
+/*var slideInterval = setInterval(nextSlide,2000);
+
+function nextSlide() {
+
+feedbackBlock[slideIndex].classList = 'feedback-block';
+feedbackSignature[slideIndex].classList = 'feedback-signature';
+feedbackHeading[slideIndex].classList = 'feedback-heading';
+feedbackText[slideIndex].classList = 'feedback-text';
+
+slideIndex = (slideIndex+1)%feedbackBlock.length;
+
+feedbackBlock[slideIndex].classList = 'feedback-block slideInLeft';
+feedbackSignature[slideIndex].classList = 'feedback-signature slideInLeft';
+feedbackHeading[slideIndex].classList = 'feedback-heading slideInLeft';
+feedbackText[slideIndex].classList = 'feedback-text slideInLeft';
+
+};
+*/
+
+let buttons = document.querySelectorAll('.button'),
+	a = true;
+
+function btnFalse() {
+	for(i = 0; i < buttons.length; i++) {
+		buttons[i].addEventListener('click', () => {
+			a = false;
+		});
+	};
+	close0.addEventListener('click', () => {
+		a = false;
+	});
+	fixedBtn.addEventListener('click', () => {
+		a = false;
+	});
+
+};
+
+btnFalse();
+
+function scrolling() {
+
+if (document.documentElement.scrollHeight == document.documentElement.clientHeight + document.documentElement.scrollTop && a) {
+	popupDialog1.addEventListener('mouseenter', () => isMouseLeft1 = false);
+    popupDialog1.addEventListener('mouseleave', () => isMouseLeft1 = true);
+
+        popupGift.style.display = 'block';
+        btn.style.display = 'none';
+        document.body.style.overflow = 'hidden';
+    
+
+
+    popupGift.addEventListener('click', () => {
+        if (isMouseLeft1) {
+            popupGift.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    });
+
+    close1.addEventListener('click', function() {
+        popupGift.style.display = 'none';
+        document.body.style.overflow = '';
+    });
+    
+return
+} else if(document.documentElement.scrollHeight != document.documentElement.clientHeight + document.documentElement.scrollTop && a) {
+	setTimeout(scrolling, 1);
+} else {
+	return
+}
+
+};
+//setInterval(scrolling, 1);
+
+
+scrolling();
+
+
+
+
+
+
+/*
+var form = document.getElementsByClassName('form')[0];
+
+let opt1 = sizeCalc.options,
+    opt2 = material.options,
+    opt3 = optionss.options,    
+    sizeCalc = form.elements.size,
+    material = form.elements.material,
+    optionss = form.elements.options,
+    total = 0,
+    promocode = document.getElementsByClassName('promocode')[0],
+    calcPrice = document.getElementsByClassName('calc-price')[0];
+
+
+
+
+sizeCalc.addEventListener('change', () => {
+    if (opt1[0].selected != true || opt2[0].selected != true) {
+    	total
+    }
+});
+
+material.addEventListener('change', () => {
+
+});
+
+options.addEventListener('change', () => {
+
+});
+promocode.addEventListener('change', () => {
+
+});*/
+
+
+let burger = document.getElementsByClassName('burger')[0],
+	burgerMenu = document.getElementsByClassName('burger-menu')[0];
+	burger.addEventListener('touchend', () => {
+		if(document.documentElement.offsetWidth <= 768) {
+			burgerMenu.style.display = 'block';
+		};
+	});
+
+//document.documentElement.offsetWidth.addEventListener('change', () => {
+function widthChange() {
+	if(document.documentElement.offsetWidth > 768) {
+			burgerMenu.style.display = 'none';
+		};
+};
+
+setInterval(widthChange, 1);
+//		});
