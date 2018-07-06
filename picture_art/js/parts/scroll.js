@@ -1,8 +1,11 @@
 function scroll() {
 
     let buttons = document.querySelectorAll('.button'),
-        close0 = document.getElementsByClassName('popup-close')[0],
+        close1 = document.getElementsByClassName('popup-close')[0],
         fixedBtn = document.getElementsByClassName('fixed-gift')[0],
+        popupDialog1 = document.getElementsByClassName('popup-dialog')[0],
+        popupGift = document.getElementsByClassName('popup-gift')[0],
+        isMouseLeft1 = true;
         a = true;
 
     function btnFalse() {
@@ -11,7 +14,7 @@ function scroll() {
                 a = false;
             });
         };
-        close0.addEventListener('click', () => {
+        close1.addEventListener('click', () => {
             a = false;
         });
         fixedBtn.addEventListener('click', () => {

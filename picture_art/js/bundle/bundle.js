@@ -268,48 +268,44 @@ function consultTimer() {
 module.exports = consultTimer;
 },{}],7:[function(require,module,exports){
 function feedbackBl() {
-    let feedbackBlock = document.querySelectorAll('.feedback-block'),
-        feedbackHeading = document.querySelectorAll('.feedback-heading'),
-        feedbackText = document.querySelectorAll('.feedback-text'),
-        feedbackSignature = document.querySelectorAll('.feedback-signature'),
+    let feedbackSlider = document.querySelectorAll('.feedback-slider-item'),
         prev = document.getElementsByClassName('main-prev-btn')[0],
         slideIndex = 1,
         next = document.getElementsByClassName('main-next-btn')[0];
 
 
     for (i = 1; i < 3; i++) {
-        feedbackSignature[i].style.display = 'none';
-        feedbackText[i].style.display = 'none';
-        feedbackHeading[i].style.display = 'none';
-        feedbackBlock[i].style.display = 'none';
+        feedbackSlider[i].style.display = 'none';
     };
 
     function showSlides(n) {
-        if (n > feedbackSignature.length) {
+        if (n > feedbackSlider.length) {
             slideIndex = 1
         };
         if (n < 1) {
-            slideIndex = feedbackSignature.length;
+            slideIndex = feedbackSlider.length;
         };
 
-        for (let i = 0; i < feedbackSignature.length; i++) {
-            feedbackSignature[i].style.display = 'none';
-            feedbackText[i].style.display = 'none';
-            feedbackHeading[i].style.display = 'none';
-            feedbackBlock[i].style.display = 'none';
-
+        for (let i = 0; i < feedbackSlider.length; i++) {
+            feedbackSlider[i].style.display = 'none';
         };
 
-        feedbackBlock[slideIndex - 1].style.display = 'block';
-        feedbackSignature[slideIndex - 1].style.display = 'block';
-        feedbackHeading[slideIndex - 1].style.display = 'block';
-        feedbackText[slideIndex - 1].style.display = 'block';
+        feedbackSlider[slideIndex - 1].style.display = 'block';
 
 
     }
 
     function plusSliders(n) {
         showSlides(slideIndex += n);
+        if (slideIndex < 4) {
+            for (i = 0; i < 3; i++) {
+                feedbackSlider[i].style.display = 'none';
+                feedbackSlider[i].classList = 'feedback-slider-item';
+            };
+
+            feedbackSlider[slideIndex - 1].style.display = 'block';
+            feedbackSlider[slideIndex - 1].classList = 'feedback-slider-item animated fadeInLeft';
+        }
     }
 
     prev.addEventListener('click', function() {
@@ -328,24 +324,12 @@ function feedbackBl() {
     function nextSlide() {
         if (slideIndex < 4) {
             for (i = 0; i < 3; i++) {
-                feedbackSignature[i].style.display = 'none';
-                feedbackText[i].style.display = 'none';
-                feedbackHeading[i].style.display = 'none';
-                feedbackBlock[i].style.display = 'none';
-                feedbackBlock[i].classList = 'feedback-block';
-                feedbackSignature[i].classList = 'feedback-signature';
-                feedbackHeading[i].classList = 'feedback-heading';
-                feedbackText[i].classList = 'feedback-text';
+                feedbackSlider[i].style.display = 'none';
+                feedbackSlider[i].classList = 'feedback-slider-item';
             };
 
-            feedbackBlock[slideIndex - 1].style.display = 'block';
-            feedbackSignature[slideIndex - 1].style.display = 'block';
-            feedbackHeading[slideIndex - 1].style.display = 'block';
-            feedbackText[slideIndex - 1].style.display = 'block';
-            feedbackBlock[slideIndex - 1].classList = 'feedback-block animated fadeInLeft';
-            feedbackSignature[slideIndex - 1].classList = 'feedback-signature animated fadeInLeft';
-            feedbackHeading[slideIndex - 1].classList = 'feedback-heading animated fadeInLeft';
-            feedbackText[slideIndex - 1].classList = 'feedback-text animated fadeInLeft';
+            feedbackSlider[slideIndex - 1].style.display = 'block';
+            feedbackSlider[slideIndex - 1].classList = 'feedback-slider-item animated fadeInLeft';
 
             slideIndex += 1;
         } else {
@@ -546,8 +530,11 @@ module.exports = modalGift;
 function scroll() {
 
     let buttons = document.querySelectorAll('.button'),
-        close0 = document.getElementsByClassName('popup-close')[0],
+        close1 = document.getElementsByClassName('popup-close')[0],
         fixedBtn = document.getElementsByClassName('fixed-gift')[0],
+        popupDialog1 = document.getElementsByClassName('popup-dialog')[0],
+        popupGift = document.getElementsByClassName('popup-gift')[0],
+        isMouseLeft1 = true;
         a = true;
 
     function btnFalse() {
@@ -556,7 +543,7 @@ function scroll() {
                 a = false;
             });
         };
-        close0.addEventListener('click', () => {
+        close1.addEventListener('click', () => {
             a = false;
         });
         fixedBtn.addEventListener('click', () => {
