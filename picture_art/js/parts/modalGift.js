@@ -1,7 +1,7 @@
 function modalGift() {
     let fixedBtn = document.getElementsByClassName('fixed-gift')[0],
-        close1 = document.getElementsByClassName('popup-close')[0],
-        popupDialog1 = document.getElementsByClassName('popup-dialog')[0],
+        close1 = document.getElementsByClassName('popup-close')[1],
+        popupDialog1 = document.getElementsByClassName('popup-dialog')[1],
         popupGift = document.getElementsByClassName('popup-gift')[0],
         isMouseLeft1 = true;
 

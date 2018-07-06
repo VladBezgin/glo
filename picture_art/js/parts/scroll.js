@@ -1,11 +1,12 @@
 function scroll() {
 
     let buttons = document.querySelectorAll('.button'),
-        close1 = document.getElementsByClassName('popup-close')[0],
+        close0 = document.getElementsByClassName('popup-close')[0],
+        close1 = document.getElementsByClassName('popup-close')[1],
         fixedBtn = document.getElementsByClassName('fixed-gift')[0],
-        popupDialog1 = document.getElementsByClassName('popup-dialog')[0],
+        popupDialog1 = document.getElementsByClassName('popup-dialog')[1],
         popupGift = document.getElementsByClassName('popup-gift')[0],
-        isMouseLeft1 = true;
+        isMouseLeft1 = true,
         a = true;
 
     function btnFalse() {
@@ -14,13 +15,13 @@ function scroll() {
                 a = false;
             });
         };
-        close1.addEventListener('click', () => {
+        close0.addEventListener('click', () => {
             a = false;
         });
         fixedBtn.addEventListener('click', () => {
             a = false;
         });
-
+        
     };
 
     btnFalse();
@@ -42,10 +43,10 @@ function scroll() {
                 if (isMouseLeft1) {
                     popupGift.style.display = 'none';
                     document.body.style.overflow = '';
-                }
+                };
             });
 
-            close1.addEventListener('click', function() {
+            close0.addEventListener('click', function() {
                 popupGift.style.display = 'none';
                 document.body.style.overflow = '';
             });
@@ -55,7 +56,7 @@ function scroll() {
             setTimeout(scrolling, 1);
         } else {
             return
-        }
+        };
 
     };
 
