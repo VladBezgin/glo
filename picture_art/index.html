@@ -2,7 +2,7 @@
 <html lang=ru>
 
 <head>
-    <meta charset=UTF-8>
+    <meta charset='UTF-8'>
     <meta name=viewport content="width=device-width, initial-scale=1">
     <title>Картины.art - портрет на холсте</title>
     <link rel="stylesheet" href="css/animate.css">
@@ -599,12 +599,12 @@
             <p class=p-heading>Остались вопросы?</p>
             <h2>Получите консультацию художника!</h2>
             <div class="col-md-10 col-md-offset-1">
-                <form class='mainForm' action=mailer/smart.php method=POST>
+                <form class='mainForm'  method=POST  action="#">
                     <div class=input-wrapper>
-                        <input class="inputConsult name" type=text name=name placeholder="Ваше имя" required pattern='[А-Яа-яЁё]'>
-                        <input class="inputConsult" type=text name=phone placeholder="Ваш телефон" required>
+                        <input class="inputConsult name" type=text name=name placeholder="Ваше имя" required >
+                        <input class="inputConsult" type=text name=phone placeholder="Ваш телефон" required maxlength='11'a>
                         <input class="inputConsult" type=text name=email placeholder="Ваш E-mail">
-                        <input class='input-text inputConsult message' name=message type=text placeholder="Задайте ваш вопрос здесь" required pattern='[А-Яа-яЁё]'>
+                        <input class='input-text inputConsult message' name=message type=text placeholder="Задайте ваш вопрос здесь" required>
                     </div>
                     <button class="button button-order" onclick="yaCounter46630539.reachGoal('btn-consultation'); return true;">Получить консультацию</button>
                 </form>
@@ -668,8 +668,8 @@
                 <button class=popup-close>&times;</button>
                 <h4>Остались вопросы? Закажите обратный звонок</h4>
                 <div class=main-form>
-                    <form class=form action=mailer/smart.php method=POST>
-                        <input class="inputConsulation name" type=text name=name placeholder="Ваше имя" required pattern='[А-Яа-яЁё]'>
+                    <form class=form  method=POST  action="#" >
+                        <input class="inputConsulation name" type=text name=name placeholder="Ваше имя" required >
                         <input class="inputConsulation" type=text name=phone placeholder="Ваш телефон" required maxlength='11'>
                         <button class="button button-order" onclick="yaCounter46630539.reachGoal('btn-consultation'); return true;">Получить консультацию</button>
                     </form>
@@ -691,7 +691,7 @@
         <div class=popup-dialog>
             <div class=popup-content>
                 <button class=popup-close>&times;</button>
-                <form action=m ethod=POST enctype=multipart/form-data>
+                <form ethod=POST enctype=multipart/form-data  action="#">
                     <h4>Заказать дизайн портрета</h4>
                     <div class=file_uploa>
                         <button type=button>Загрузить фотографию</button>
@@ -700,10 +700,10 @@
                     </div>
                     <div class=main-form>
                         <div class=form>
-                            <input class="inputDesign name" type=text name=name placeholder="Ваше имя"  required pattern='[А-Яа-яЁё]'>
+                            <input class="inputDesign name" type=text name=name placeholder="Ваше имя"  required>
                             <input class="inputDesign" type=text name=phone placeholder="Ваш телефон" maxlength='11' required>
                             <input class="inputDesign" type=text name=email placeholder="Ваш e-mail" >
-                            <textarea class="inputDesign message" name=message placeholder=Комментарий rows=2 pattern='[А-Яа-яЁё]'></textarea>
+                            <textarea class="inputDesign message" name=message placeholder=Комментарий rows=2 ></textarea>
                             <button class="button button-order">Отправить дизайнеру</button>
                         </div>
                     </div>
